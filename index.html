@@ -130,20 +130,84 @@
 						</textarea>
 					</section>
 					<section>
-						<h2>## Git Snapshots</h2>
-					     <p>Each check-in version</p>
+						<h2>Git Snapshots</h2>
+					     <p>Each checkin version of the overall code has a copy of each file in it.  </p>
 						<img width="360px" src="img/git-snapshots.png"/>
+						<aside class="notes">
+							Some files change on a given checkin, some do not.– More redundancy, but faster. 
+						</aside>
 					</section>	
-					<section data-markdown>
-						<textarea data-template>
-							### Git Concepts
-							- Git Snapshots
-							- Local Git Areas
-							- Basic Git Workflow
-							- Git commit checksums
-							- Git Configuration
-						</textarea>
-					</section>	
+					<section>
+						<h2>Local Git Areas</h2>
+					     <p><u>working copy</u> vs <u>staging</u> vs <u>commited</u></p>
+						<img width="400px" src="img/git-areas.png"/>
+						<aside class="notes">
+								In your local copy on git,
+								files can be:
+								– In your local repo
+								• (committed)
+								– Checked out and modified,
+								but not yet committed
+								• (working copy)
+								– Or, in-between, in
+								a "staging" area
+								• Staged files are ready
+								to be committed.
+								• A commit saves a snapshot of all staged state. 
+						</aside>
+					</section>
+					<section>
+						<h2>A Basic Git Workflow</h2>
+							<p>Modify</p>
+							<p>Stage</p>
+							<p>Commit</p>
+						<img width="360px" src="img/git-workflow.png"/>
+						<aside class="notes">
+							Some files change on a given checkin, some do not.– More redundancy, but faster. 
+						</aside>
+					</section>
+					<section>
+						<h2>Git commit checksums</h2>
+						<p>In Git, each user has their own copy of the repo, and commits
+						changes to their local copy of the repo before pushing to the
+						central server.
+					    </p>
+						<p>So Git generates a unique SHA-1 hash (40 character string
+						of hex digits) for every commit.
+					    </p>
+						<p>Refers to commits by this ID rather than a version number. </p>
+					
+					</section>
+					<section data-markdown data-notes="You can call git config –list to verify these are set.
+					• Set the editor that is used for writing commit messages:
+					– git config --global core.editor nano
+					• (it is vim by default) ">
+							<textarea data-template z>
+								### Initial Git configuration
+								
+								```
+								# Set user name and email
+								git config --global user.name "Poh Peng" 
+								git config --global user.email pohpengwang@gmail.com
+							</textarea>									
+					</section>
+					<section data-markdown data-notes="">
+							<textarea data-template z>
+								### Creating a Git Repo
+								
+								
+								
+								```
+								# Two Ways:
+								# To create a new local Git repo in your current directory: 
+								git init 
+								git add . or git add <filename>
+								git commit -m "commit message"
+								
+								# To clone a remote repo to your current directory: 
+								git clone <url>
+							</textarea>									
+					</section>
 				</section>
 			</section>
 				</section>
@@ -151,7 +215,7 @@
 						<textarea data-template>
 							### How do I work with Git?
 							- GUI Clients like Sourcetree or GitKraken
-							- Command Line (we will be touching on this)
+							- Command Line (Hands-on)
 						</textarea>
 					</section>	
 				</section>
@@ -162,16 +226,25 @@
 							<img src="img/git_commands.png"/>
 						</textarea>
 					</section>	
+					<section data-markdown>
+							<textarea data-template>
+								### Hands-on
+								[Bitbucket Basic](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud) for complete beginners
+
+								[Git Katas](https://github.com/praqma-training/git-katas) for you to flex your kode-fu
+							</textarea>
+						</section>	
+					
 				</section>
 				<!-- Test -->
 				<section>
-					<section> List of fragments below</section>
+					<section> Useful resources below</section>
 					<section>
 						<!-- <p class="fragment grow">grow</p> -->
 						<!-- <p class="fragment shrink">shrink</p> -->
 						<!-- <p class="fragment fade-out">fade-out</p> -->
 						<!-- <p class="fragment fade-up">fade-up (also down, left and right!)</p> -->
-						<p class="fragment fade-in-then-out">fades in, then out when we move to the next step</p>
+						<p class="fragment fade-in-then-out">git.wtf</p>
 						<p class="fragment fade-in-then-semi-out">fades in, then obfuscate when we move to the next step</p>
 						<p class="fragment highlight-current-blue">blue only once</p>
 						<!-- <p class="fragment highlight-red">highlight-red</p> -->
