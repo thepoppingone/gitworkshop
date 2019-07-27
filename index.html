@@ -197,13 +197,34 @@
 								
 								```
 								# Two Ways:
+								# To clone a remote repo to your current directory: </url>
+								git clone <url>
+
 								# To create a new local Git repo in your current directory: 
 								git init 
+								# Add file to the staging area
 								git add . or git add <filename>
+								# Save staged changes into the repo
 								git commit -m "commit message"
 								
-								# To clone a remote repo to your current directory: 
-								git clone <url>
+								
+							</textarea>									
+					</section>
+					<section data-markdown data-notes="">
+							<textarea data-template z>
+								### Two ways to undo your changes
+								
+								
+								```
+								# Unstages the file
+								– git reset HEAD -- filename
+
+								# Undoes your changes
+								– git checkout -- filename 
+								```
+								All these commands are acting on your local version of repo. 
+
+								
 							</textarea>									
 					</section>
 				</section>
@@ -240,20 +261,56 @@
 					</section>
 					<section>
 						<h4>Git Clone</h4>
+						<p style="font-size: 20px"> Copy a Git repository to your machine </p>
 						<img src="img/git-clone.gif"/>
 					</section>
 					<section>
 						<h4>Git Status</h4>
+						<p style="font-size: 20px"> To view status of files in working directory and staging area: </p>
 						<img width="470px" src="img/git-status.gif"/>
 						<img width="470px" src="img/git-status-static.png"/>
 					</section>
 					<section>
 						<h4>Git Diff</h4>
+						<p style="font-size: 20px"> To see what is modified but unstaged: </p>
 						<img src="img/git-diff-static.png"/>
 					</section>
 					<section>
 						<h4>Git Push</h4>
-						<img src="img/git-push.gif"/>
+						<p style="font-size: 20px"> Push your local changes to the remote repo</p>
+						<img width="600px" src="img/git-push.gif"/>
+					</section>
+					<section>
+						<h4>Git Pull</h4>
+						<p style="font-size: 20px"> Pull from remote repo to get most recent changes</p>
+						<img width="650px" src="img/git-pull-static.png"/>
+					</section>
+					<section>
+						<h4>Git Log</h4>
+						<p style="font-size: 20px"> Show logs of past commits </p>
+						<img src="img/git-log-static.png"/>
+					</section>
+					<section>
+						<h2>Demo Git Basic Commands</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Moving beyond Basic Git......</h3>
+						<p>Branching and Merging</p>
+					</section>
+					<section>
+						<h4>Git Branches</h4>
+						<p style="font-size: 20px"> Each commit will then extend out from that particular branch</p>
+						<img src="img/git-branch-1.jpeg"/>
+					</section>
+					<section>
+						<h4>Git Merge</h4>
+						<p style="font-size: 20px"> On a successful merge, a new merge commit will be created</p>
+						<img src="img/git-merge-1.png"/>
+					</section>
+					<section>
+						<h2>Demo More Git Commands</h2>
 					</section>
 				</section>
 				<section data-markdown>
@@ -261,7 +318,7 @@
 							### Hands-on
 							[Bitbucket Basic](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud) for complete beginners
 
-							[Git Katas](https://github.com/praqma-training/git-katas) for you to flex your kode-fu
+							[Git Katas](https://github.com/praqma-training/git-katas/blob/master/Overview.md) for you to flex your kode-fu
 							
 							https://bit.ly/2Ooc0xG
 						</textarea>
@@ -281,8 +338,18 @@
 						<!-- <p class="fragment highlight-blue">highlight-blue</p> -->
 					</section>
 				</section>
-				<section>
-					Thanks for listening!
+				<section data-markdown>
+						<textarea data-template>
+					### Thanks for listening!
+					Credits:
+
+					[Uni of Washington](https://courses.cs.washington.edu/courses/cse403/13au/lectures/git.ppt.pdf)
+					
+					[revealjs](https://github.com/hakimel/reveal.js/)
+					
+					[Atlassian](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
+
+					</textarea>
 				</section>
 			</div>
 		</div>
