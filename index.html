@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>HATS #1</title>
+		<title>Git Workshop</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/sky.css">
 		<link rel="stylesheet" href="css/extras.css">
 
 		<!-- Theme used for syntax highlighting of code -->
@@ -26,158 +26,346 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							## Git Beginner Workshop 
+							Wang Poh Peng
+
+							[Slides pdf](https://thepoppingone.github.io/gitworkshop?print-pdf)
+
+							[Cheat sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+						</textarea>				
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							## Outline
+							- 40 mins on concepts and common commands
+							- 10 mins break
+							- Hands-on till lunch
+						</textarea>
+					</section>
+					<section>
+						<p>Scan QR code for slides:</p>
+						
+						<img src="img/frame.png"/>		
+					</section>
+				</section>
+				<!-- Git Start -->
+				<section>
+					<section>
+						<img height="180px" style="border:0 solid" src="img/git-logo.png"/>
+						<h2>What is Git?</h2>
+						<p>A VCS Created by Linus Torvalds in 2005 to do version control on Linux Kernel</p>
+						<p></p>
+					</section>
+					<section>
+						<h4>Trivia</h4>
+						<pre><code data-trim data-noescape>
+						type `man git` in  your terminal
+						
+						Git => Unpleasant or comtempitible person
+						
+						Junio Hamano took over project 2 months after release
+
+						Originated from a closed software called BitKeeper
+					</code></pre>
+					</section>
+					<section>
+						<h2>What is VCS (Version Control System)</h2>
+						<p> A system that keeps records of changes</p>
+						<p> Find out who made what changes & when</p>
+						<p> Allows one to also revert to any previous state</p>
+						<p> Git is a form of distributed VCS </p>
+						<p> Subversion/CVS are forms of centralized VCS </p>
+						<aside class="notes">
+							Explain the difference - a centralized vs distributed one (exact copy vs latest copy on server with incremental changes)
+						</aside>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+						> GitHub is not git -
+						> Many people understandably confuse the two. 
+
+						* GitHub is a website for hosting projects using git. 
+						* Bitbucket and Gitlab are also popular options
+						</textarea>						
+					</section>
+					<section>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/1h9_cB9mPT8?start=14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		
+					</section>
+					
+		
+					<!-- <section>
+						<p class="three_halfs_size danger_heading">Problem #1</p>	
+						<h4>Presence = 80% of websocket traffic</h4>
+						<img height="180px" style="border:0 solid" src="img/presence.png"/>
+						<p class="fragment hightlight-current-blue fade-up">Solution: Broadcast -> publish/subscribe</p>
+					</section>
+					<section>
+						<p class="three_halfs_size danger_heading">Problem #2</p>	
+						<h4>Product-led coy to Engineering-led coy</h4>
+						<p class="fragment hightlight-current-blue fade-up">Solution: Find evangelist and executive sponsor</p>
+					</section>
+					<section>
+						<h1>Year 2017</h1>
+						<p>  Hack/PHP monolith on backend - Vanilla JS on frontend</p>
+						<p>  1 service: presence and real-time messaging </p>
+						<p>  A new Go caching service was being built </p>
+					</section>
+					<section>
+						<p class="three_halfs_size danger_heading">Problem #1</p>	
+						<img height="400px" style="border:0 solid" src="img/monolith.png"/>	
+						<p class="fragment hightlight-current-blue fade-up">A communication risk appeared</p>
+					</section>
+					<section>
+						<blockquote>The more technically complex, nuanced a problem is… The higher the communication risk. </blockquote>
+					</section>
+					<section>
+						<p class="danger_heading">The Pressure</p>	
+						<img height="500px" style="border:0 solid" src="img/pressure.png"/>	
+					</section>
+					<section>
+						<p class="danger_heading">Hiring</p>	
+						<img height="500px" style="border:0 solid" src="img/coding_exercise.png"/>	
+					</section>
+					<section>
+						<p class="danger_heading">Multiple Hats</p>	
+						<img height="500px" style="border:0 solid" src="img/hats_multiple.png"/>
+					</section>
+					<section>
+						Click <a href=https://qconnewyork.com/system/files/presentation-slides/julia-grace-qcon-talk.pdf>Here </a> for rest of the slides
+					</section> -->
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Git Concepts
+							- Git Snapshots
+							- Local Git Areas
+							- Basic Git Workflow
+							- Git commit checksums
+							- Git Configuration
+						</textarea>
+					</section>
+					<section>
+						<h2>Git Snapshots</h2>
+					     <p>Each checkin version of the overall code has a copy of each file in it.  </p>
+						<img width="360px" src="img/git-snapshots.png"/>
+						<aside class="notes">
+							Some files change on a given checkin, some do not.– More redundancy, but faster. 
+						</aside>
+					</section>	
+					<section>
+						<h2>Local Git Areas</h2>
+					     <p><u>working copy</u> vs <u>staging</u> vs <u>commited</u></p>
+						<img width="400px" src="img/git-areas.png"/>
+						<aside class="notes">
+								In your local copy on git,
+								files can be:
+								– In your local repo
+								• (committed)
+								– Checked out and modified,
+								but not yet committed
+								• (working copy)
+								– Or, in-between, in
+								a "staging" area
+								• Staged files are ready
+								to be committed.
+								• A commit saves a snapshot of all staged state. 
+						</aside>
+					</section>
+					<section>
+						<h2>A Basic Git Workflow</h2>
+							<p>Modify</p>
+							<p>Stage</p>
+							<p>Commit</p>
+						<img width="360px" src="img/git-workflow.png"/>
+						<aside class="notes">
+							Some files change on a given checkin, some do not.– More redundancy, but faster. 
+						</aside>
+					</section>
+					<section>
+						<h2>Git commit checksums</h2>
+						<p>In Git, each user has their own copy of the repo, and commits
+						changes to their local copy of the repo before pushing to the
+						central server.
+					    </p>
+						<p>So Git generates a unique SHA-1 hash (40 character string
+						of hex digits) for every commit.
+					    </p>
+						<p>Refers to commits by this ID rather than a version number. </p>
+					
+					</section>
+					<section data-markdown data-notes="You can call git config –list to verify these are set.
+					• Set the editor that is used for writing commit messages:
+					– git config --global core.editor nano
+					• (it is vim by default) ">
+							<textarea data-template z>
+								### Initial Git configuration
+								
+								```
+								# Set user name and email
+								git config --global user.name "Poh Peng" 
+								git config --global user.email pohpengwang@gmail.com
+							</textarea>									
+					</section>
+					<section data-markdown data-notes="">
+							<textarea data-template z>
+								### Creating a Git Repo
+								
+								
+								
+								```
+								# Two Ways:
+								# To clone a remote repo to your current directory: </url>
+								git clone <url>
+
+								# To create a new local Git repo in your current directory: 
+								git init 
+								# Add file to the staging area
+								git add . or git add <filename>
+								# Save staged changes into the repo
+								git commit -m "commit message"
+								
+								
+							</textarea>									
+					</section>
+					<section data-markdown data-notes="">
+							<textarea data-template z>
+								### Two ways to undo your changes
+								
+								
+								```
+								# Unstages the file
+								– git reset HEAD -- filename
+
+								# Undoes your changes
+								– git checkout -- filename 
+								```
+								All these commands are acting on your local version of repo. 
+
+								
+							</textarea>									
+					</section>
+				</section>
+			</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### How do I visualize Git?
+							- GUI Clients like Sourcetree or GitKraken
+							- Command Line - gitk
+						</textarea>
+					</section>	
+					<section>
+						<h2>Sourcetree</h2>
+						<img width="850px" src="img/sourcetree.gif"/>	
+					</section>
+					<section>
+						<h2>GitKraken</h2>
+						<img width="850px" src="img/gitkraken.gif"/>
+					</section>
+					<section>
+						<h2>gitk</h2>
+						<img width="820px" src="img/gitk.gif"/>
+					</section>	
+				</section>
+			</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Common Git Commands
+							<img src="img/git_commands.png"/>
+						</textarea>
+					</section>
+					<section>
+						<h4>Git Clone</h4>
+						<p style="font-size: 20px"> Copy a Git repository to your machine </p>
+						<img src="img/git-clone.gif"/>
+					</section>
+					<section>
+						<h4>Git Status</h4>
+						<p style="font-size: 20px"> To view status of files in working directory and staging area: </p>
+						<img width="470px" src="img/git-status.gif"/>
+						<img width="470px" src="img/git-status-static.png"/>
+					</section>
+					<section>
+						<h4>Git Diff</h4>
+						<p style="font-size: 20px"> To see what is modified but unstaged: </p>
+						<img src="img/git-diff-static.png"/>
+					</section>
+					<section>
+						<h4>Git Push</h4>
+						<p style="font-size: 20px"> Push your local changes to the remote repo</p>
+						<img width="600px" src="img/git-push.gif"/>
+					</section>
+					<section>
+						<h4>Git Pull</h4>
+						<p style="font-size: 20px"> Pull from remote repo to get most recent changes</p>
+						<img width="650px" src="img/git-pull-static.png"/>
+					</section>
+					<section>
+						<h4>Git Log</h4>
+						<p style="font-size: 20px"> Show logs of past commits </p>
+						<img src="img/git-log-static.png"/>
+					</section>
+					<section>
+						<h2>Demo Git Basic Commands</h2>
+						<pre><code>How to make code changes locally and pushing it to the remote - change here</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Moving beyond Basic Git......</h3>
+						<p>Branching and Merging</p>
+					</section>
+					<section>
+						<h4>Git Branches</h4>
+						<p style="font-size: 20px"> Each commit will then extend out from that particular branch</p>
+						<img src="img/git-branch-1.jpeg"/>
+					</section>
+					<section>
+						<h4>Git Merge</h4>
+						<p style="font-size: 20px"> On a successful merge, a new merge commit will be created</p>
+						<img src="img/git-merge-1.png"/>
+					</section>
+					<section>
+						<h4>Pull Requests</h4>
+						<p style="font-size: 20px"> However, rarely git merge is used on the remote - instead PRs are used</p>
+						<img src="img/git-pr.png"/>
+					</section>
+					<section>
+						<h2>Demo More Git Commands</h2>
+						<pre><code>We will now merge the local gh-pages branch into master branch</code></pre>
+					</section>
+				</section>
 				<section data-markdown>
 						<textarea data-template>
-						## Qcon NY 2019 Brownbag #1 
-						Selected Learnings from Qcon
+							### Hands-on
+							[Bitbucket Basic](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud) for complete beginners
+
+							[Git Katas](https://github.com/praqma-training/git-katas/blob/master/Overview.md) for you to flex your kode-fu
+							
+							https://bit.ly/2Ooc0xG
 						</textarea>
-				</section>
-				<!-- Slack -->
-				<section>
-					<section>
-						<img height="180px" style="border:0 solid" src="https://www.stickpng.com/assets/images/5cb480b85f1b6d3fbadece78.png"/>
-						<p>How did Slack scale its Infra Engineering Team?</p>
-					</section>
-					<section>Test vertical slide 1 </section>
-					<section>Test vertical slide 2 </section>
-				</section>
-				<!-- Netflix Reacting to Failure -->
-				<section>
-					<section>
-						<blockquote>Add image here</blockquote>
-						<p>How did things go right? (Netflix)</p>
-					</section>
-					<section>
-						<h4>Recovery > Prevention</h4>
-						<p class="fragment hightlight-current-blue fade-up">The most important thing we can learn is to build capacity to encounter failure succesfully</p>
-					</section>
-					<section>
-						<h3>3 Pillars of Fallacy</h3>
-						<div> Comprehension</div>
-						<div> Understandability</div>
-						<div> Predictability</div>
-					</section>
-					<section>
-							<table>
-								<thead>
-									<tr>
-										<th class="heading_1">Comprehension</th>
-										<th class="heading_2">Understandability</th>
-										<th class="heading_3">Predictability</th>
-									</tr>
-								</thead>
-								<tbody class="three_quarters_size">
-									<tr>
-										<td>Incidents cannot be fully comprehended.</td>
-										<td>Managing the small stuff does not prevent big incidents.</td>
-										<td>Learning from the last incident will not allow you to predict the next one.</td>
-									</tr>
-									<tr>
-										<td>They are fraught with uncertainty.</td>
-										<td>Incidents are not made up of causes. We do not find them; we construct them.</td>
-										<td>Complex systems are not deterministic.</td>
-									</tr>
-									<tr>
-										<td>Remediation items will contribute to further incidents.</td>
-										<td></td>
-										<td>Their state cannot be precisely or repeatedly foretold.</td>
-									</tr>
-								</tbody>
-					    	</table>
-					</section>
-					<section>
-						<p>Bell Curve of Daily Ops</p>
-						<img src="img/bell_curve_ops.png"/>
-					</section>
-					<section>
-						<p>Usually missed observations</p>
-						<img src="img/invisible.png"/>
-					</section>
-					<section>
-						<img src="img/netflix_tix.png"/>
-					</section>
-					<section>
-						<h4>9 Factors</h4>
-						<ol>
-							<li>Contributors & Enablers</li>
-							<li>Mitigators</li>
-							<li>Risks</li>
-							<li>Difficulties in Handling</li>
-							<li>Follow-up Items</li>
-							<li>Artifacts</li>
-							<li>Timeline</li>
-							<li>References</li>
-							<li>Open Questions</li>
-						</ol>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Contributors & Enablers</div>	
-						<p>What was the trigger?</p>
-						<p>What was the underlying problem?</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Mitigators</div>	
-						<p>What was done?</p>
-						<p>Who responded to it?</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Risks</div>	
-						<p>What was done?</p>
-						<p>Who responded to it?</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Difficulties in handling</div>	
-						<blockquote>"Islands of Knowledge?"</blockquote>
-						<blockquote>"I didn't know it worked like this?"</blockquote>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Follow-up Items</div>	
-						<p>What should we do to recover?</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Artifacts</div>	
-						<p>A report of the incident and steps taken to fix it?</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Timeline</div>	
-						<p>Note down each action taken at each timestamp</p>
-						<p>A better understanding of the change brought to the service</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">References</div>	
-						<p>What did we refer to to fix the issue?</p>
-					</section>
-					<section>
-						<div class="heading_1 three_halfs_size">Open Questions</div>	
-						<p>Active discussions within the team for the decisions made</p>
-						<p>Justify and ask why were the actions taken?</p>
-					</section>
-					<section>
-						<h2>Final Takeaways</h3>
-					    <p>Recovery > Prevention.</p>
-						<p>There is no root cause.</p>
-						<p>Stop reporting on the nines.</p>
-						<p>Learn how things go right.</p>
-					</section>
-					<section>
-						<p>Read more "surprises" at <a href="http://continuous.wtf">continuous.wtf</a></p>
-					</section>
-				</section>
-				<!-- Test -->
-				<section>
-					<section> List of fragments below</section>
-					<section>
-						<!-- <p class="fragment grow">grow</p> -->
-						<!-- <p class="fragment shrink">shrink</p> -->
-						<!-- <p class="fragment fade-out">fade-out</p> -->
-						<!-- <p class="fragment fade-up">fade-up (also down, left and right!)</p> -->
-						<p class="fragment fade-in-then-out">fades in, then out when we move to the next step</p>
-						<p class="fragment fade-in-then-semi-out">fades in, then obfuscate when we move to the next step</p>
-						<p class="fragment highlight-current-blue">blue only once</p>
-						<!-- <p class="fragment highlight-red">highlight-red</p> -->
-						<!-- <p class="fragment highlight-green">highlight-green</p> -->
-						<!-- <p class="fragment highlight-blue">highlight-blue</p> -->
-					</section>
+					</section>	
+				<section data-markdown>
+						<textarea data-template>
+					### Thanks for listening!
+					Credits:
+
+					[Uni of Washington](https://courses.cs.washington.edu/courses/cse403/13au/lectures/git.ppt.pdf)
+					
+					[revealjs](https://github.com/hakimel/reveal.js/)
+					
+					[Atlassian](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
+					
+					[git***](https://git.wtf)
+
+					[Linus' talk on Git](https://www.youtube.com/watch?v=4XpnKHJAok8)
+					</textarea>
 				</section>
 			</div>
 		</div>
